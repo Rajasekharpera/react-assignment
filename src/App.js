@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Banner from './Components/Banner';
+import Section from './Components/Section';
+import { banners, sections, cards } from './data/data';
 import './App.css';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
+  useEffect(() => {
+    // Determine the theme CSS file based on the darkMode state
+    const theme = darkMode ? 'dark' : 'light';
+
+    // Create a <link> element for the theme CSS file
+    const linkElement = document.createElement('link');
+    linkElement.rel = 'stylesheet';
+
+    // Set the appropriate theme CSS file based on the current theme state
+    linkElement.href = `./assets/styles/${theme}-theme.css`;
+
+    // Append the <link> element to the <head> of the document
+    document.head.appendChild(linkElement);
+
+    // Clean up the <link> element when the component unmounts or when the theme changes
+    return () => {
+      document.head.removeChild(linkElement);
+    };
+  }, [darkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`app ${darkMode ? 'dark-theme' : 'light-theme'}`}>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+      {banners.map(banner => (
+        <Banner key={banner.id} {...banner} />
+      ))}
+      {sections.map(section => (
+        <Section key={section.id} {...section} cards={cards.filter(card => card.parent_sec === section.id)} />
+      ))}
     </div>
   );
 }
