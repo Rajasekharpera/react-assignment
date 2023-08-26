@@ -35,9 +35,7 @@ function App() {
   return (
     <div className={`app ${darkMode ? 'dark-theme' : 'light-theme'}`}>
       <button onClick={toggleTheme}>Toggle Theme</button>
-      {banners.map(banner => (
-        <Banner key={banner.id} {...banner} />
-      ))}
+      <Banner />
       {sections.map(section => (
         <Section key={section.id} {...section} cards={cards.filter(card => card.parent_sec === section.id)} />
       ))}
