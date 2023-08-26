@@ -3,7 +3,7 @@ import { banners} from '../data/data';
 
 const Banner = () => {
   const [currSlide, setCurrSlide] = useState(0);
-  const SLIDE_INTERVAL = 5000;
+  const SLIDE_INTERVAL = 4000;
 
   useEffect(() => {
     const interval = setInterval(() => {

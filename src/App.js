@@ -12,7 +12,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Determine the theme CSS file based on the darkMode state
     const theme = darkMode ? 'dark' : 'light';
 
     // Create a <link> element for the theme CSS file
@@ -34,7 +33,18 @@ function App() {
 
   return (
     <div className={`app ${darkMode ? 'dark-theme' : 'light-theme'}`}>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={toggleTheme}style={{
+    display: 'block',
+    margin: '0 auto',
+    marginTop: '20px',
+    padding: '10px 20px',
+    background: 'blue',
+    color: 'white',
+    borderRadius: '4px',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+  }}>Switch Theme</button>
       <Banner />
       {sections.map(section => (
         <Section key={section.id} {...section} cards={cards.filter(card => card.parent_sec === section.id)} />

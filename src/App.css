@@ -20,12 +20,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 18px;
   color: white;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #71c0d6;
 }
 
 @keyframes App-logo-spin {
@@ -51,7 +51,6 @@
   background-color: lightblue;
 }
 .banner-container {
-  /* background-color: blue; */
   overflow: hidden;
   position: relative;
   height: 200px;
