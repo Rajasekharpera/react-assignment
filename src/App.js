@@ -20,7 +20,8 @@ function App() {
     linkElement.rel = 'stylesheet';
 
     // Set the appropriate theme CSS file based on the current theme state
-    linkElement.href = `./assets/styles/${theme}-theme.css`;
+    // linkElement.href = `src/assets/styles/${theme}-theme.css`;
+    linkElement.href = `${process.env.PUBLIC_URL}/assets/styles/${theme}-theme.css`;
 
     // Append the <link> element to the <head> of the document
     document.head.appendChild(linkElement);
