@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Banner from './Components/Banner';
 import Section from './Components/Section';
-import { banners, sections, cards } from './data/data';
+import { sections, cards } from './data/data';
 import './App.css';
 
 function App() {
